@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+* {
+  box-sizing: border-box;
+}
+#layout-container {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #ccc;
+}
+
+.layout-item {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+/* Grid layout for the editor */
+.grid-container {
+    display: grid;
+    
+}
+
+/* Styling for grid items (columns and rows) */
+.grid-item {
+    background-color: blue;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* Apply different styling to indicate rows */
+.grid-item:nth-child(odd) {
+    background-color: blue;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+            width: 300px;
+            height: 300px;
+            border: 2px dashed #ccc;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            background-color: red;
+        }
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 20% !important;
+  height: 800px !important;  /* only for demonstration, should be removed */
+  background: white;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+h4,h3{
+color:white;
+}
+
+
+#component-container {
+  float: left;
+  width: 200px;
+}
+
+.draggable-component {
+  width: 100px;
+  height: 50px;
+  /* background-color: #3498db; */
+  color: black;
+  text-align: center;
+  padding: 10px;
+  margin: 5px;
+  cursor: grab;
+}
+
+
+#drop-zone {
+  width: 300px;
+            height: 300px;
+            border: 2px dashed #ccc;
+            display: grid;
+            grid-template-columns: repeat(2, 2fr);
+            grid-gap: 0px;
+  background: grey;
+}
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<section>
+
+  <nav>
+    <h3 style="color:black;"><b>Form Builder</b></h3>
+  <div id="component-container">
+    <!-- <div class="draggable-component" style="color:black;" id="component-1">Layout<label for="fname"></label></div> -->
+    <div class="draggable-component" style="color:black;" id="component-1">Label<label for="fname"></label></div>
+    <div class="draggable-component"  style="color:black;" id="component-2"><input type="text" value='Text Box' name="textBox"></div>
+    <div><button style="color:black;" class="draggable-component" id="component-3" ype="button" onclick="alert('Hello World!')">Button</button>
+    <div class="draggable-component" style="color:black;" id="component-4"><input type="radio" name="radioBtn"></div>
+    <div class="draggable-component" style="color:black;" id="component-5"><input type="checkbox" name="checkbox"></div>
+    <div class="draggable-component" style="color:black;" id="component-6">Table<table style="width:100%">
+      <tr>
+        <th>Starter</th>
+        <th>Main</th>
+        <th>Desert</th>
+      </tr>
+      <tr>
+        <td>Paneer fry</td>
+        <td>Mushroom fried rice</td>
+        <td>Ice cream</td>
+      </tr>
+      <tr>
+        <td>veg burger</td>
+        <td>veg briyani</td>
+        <td>Gulab jamun</td>
+      </tr>
+    </table></div>
+  </div>
+  </nav>
+</section>
+<div style="height:800px !important;" id="editor">
+    <div class="editable" ondrop="drop(event)" ondragover="allowDrop(event)" style="width:80%;height:800px;" id="drop-zone">
+     
+    </div>
+</div>
+<button id="addColumn">Add Column</button>
+<button id="addRow">Add Row</button>
+<button id="mergeColumns">Merge Columns</button>
+<button id="mergeRows">Merge Rows</button>
+<button id="mergeRows">Merge Rows</button>
+<br>
+<br> 
+<button id="saveLayout">Save Layout</button>
+<button id="exportLayout">Export Layout</button>
+<script src="script.js"></script>
+</body>
+</html>
